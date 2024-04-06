@@ -12,7 +12,6 @@ function TextField({ label, name, value, onChange }) {
         type="text"
         className="textField__input"
         autoComplete="off"
-        autoFocus
       />
     </div>
   );
