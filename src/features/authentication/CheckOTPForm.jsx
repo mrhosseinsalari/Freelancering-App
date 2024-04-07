@@ -23,12 +23,20 @@ function CheckOTPForm({ phoneNumber, onBack, onReSendOtp, otpResponse }) {
     e.preventDefault();
     try {
       const { user, message } = await mutateAsync({ phoneNumber, otp });
-      toast.success(message);
-      if (user.isActive) {
-        // push to panel based on role
-      } else {
+
+      if (!user.isActive) {
         navigate("/complete-profile");
+        toast.success(message);
+        return;
       }
+      if (user.status !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است");
+        return;
+      }
+
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
