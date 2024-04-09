@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost:5000/api";
 
 const app = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true,
+  withCredentials: true, // send Http-Only Cookies to backend
 });
 
 app.interceptors.request.use(
