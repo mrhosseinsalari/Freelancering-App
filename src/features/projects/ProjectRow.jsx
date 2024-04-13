@@ -6,9 +6,11 @@ import { toPersianNumbersWithComma } from "../../utils/toPersianNumbers";
 import truncateText from "../../utils/truncateText";
 import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   return (
     <Table.Row>
@@ -36,19 +38,35 @@ function ProjectRow({ project, index }) {
       </td>
       <td>
         <div className="flex items-center gap-x-4">
-          <button onClick={() => setIsEditOpen(true)}>
-            <TbPencilMinus className="w-5 h-5 text-primary-900" />
-          </button>
-          <Modal
-            title="modal title"
-            open={isEditOpen}
-            onClose={() => setIsEditOpen(false)}
-          >
-            This is modal
-          </Modal>
-          <button>
-            <HiOutlineTrash className="w-5 h-5 text-error" />
-          </button>
+          <>
+            <button onClick={() => setIsEditOpen(true)}>
+              <TbPencilMinus className="w-5 h-5 text-primary-900" />
+            </button>
+            <Modal
+              title={`ویرایش ${project.title}`}
+              open={isEditOpen}
+              onClose={() => setIsEditOpen(false)}
+            >
+              This is modal
+            </Modal>
+          </>
+          <>
+            <button onClick={() => setIsDeleteOpen(true)}>
+              <HiOutlineTrash className="w-5 h-5 text-error" />
+            </button>
+            <Modal
+              title={`حذف ${project.title}`}
+              open={isDeleteOpen}
+              onClose={() => setIsDeleteOpen(false)}
+            >
+              <ConfirmDelete
+                resourceName={project.title}
+                onClose={() => setIsDeleteOpen(false)}
+                onConfirm={() => {}}
+                disabled={false}
+              />
+            </Modal>
+          </>
         </div>
       </td>
     </Table.Row>
