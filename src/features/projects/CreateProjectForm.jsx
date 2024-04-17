@@ -28,6 +28,31 @@ function CreateProjectForm() {
         }}
         errors={errors}
       />
+      <TextField
+        label="توضیحات"
+        name="description"
+        register={register}
+        required
+        validationSchema={{
+          required: "توضیحات ضروری است",
+          minLength: {
+            value: 15,
+            message: "حداقل 15 کاراکتر را وارد کنید",
+          },
+        }}
+        errors={errors}
+      />
+      <TextField
+        label="بودجه"
+        name="budget"
+        type="number"
+        register={register}
+        required
+        validationSchema={{
+          required: "بودجه ضروری است",
+        }}
+        errors={errors}
+      />
       <button type="submit" className="btn btn--primary w-full">
         تایید
       </button>
