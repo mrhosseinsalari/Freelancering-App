@@ -3,6 +3,9 @@ import toLocalDateShort from "../../../utils/toLocalDateShort";
 import truncateText from "../../../utils/truncateText";
 import { toPersianNumbersWithComma } from "../../../utils/toPersianNumbers";
 import { MdAssignmentAdd } from "react-icons/md";
+import { useState } from "react";
+import Modal from "../../../ui/Modal";
+import CreateProposal from "../../proposals/CreateProposal";
 
 const projectStatus = {
   OPEN: {
@@ -16,21 +19,32 @@ const projectStatus = {
 };
 
 function ProjectRow({ project, index }) {
-  const { status } = project;
+  const { title, budget, deadline, status } = project;
+  const [open, setOpen] = useState(false);
 
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{truncateText(project.title, 30)}</td>
-      <td>{toPersianNumbersWithComma(project.budget)}</td>
-      <td>{toLocalDateShort(project.deadline)}</td>
+      <td>{truncateText(title, 30)}</td>
+      <td>{toPersianNumbersWithComma(budget)}</td>
+      <td>{toLocalDateShort(deadline)}</td>
       <td>
         <span className={`badge ${projectStatus[status].className}`}>
           {projectStatus[status].label}
         </span>
       </td>
       <td>
-        <button>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          title={`درخواست انجام ${title}`}
+        >
+          <CreateProposal
+            projectId={project._id}
+            onClose={() => setOpen(false)}
+          />
+        </Modal>
+        <button onClick={() => setOpen(true)}>
           <MdAssignmentAdd className="w-5 h-5 text-primary-900" />
         </button>
       </td>
