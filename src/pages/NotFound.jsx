@@ -1,7 +1,7 @@
 import { HiArrowRight } from "react-icons/hi";
 import useMoveBack from "../hooks/useMoveBack";
 
-function NotFound() {
+function NotFound({ text = "صفحه ای که دنبالش بودید، پیدا نشد" }) {
   const moveBack = useMoveBack();
 
   return (
@@ -10,7 +10,7 @@ function NotFound() {
         <div className="sm:max-w-sm flex justify-center pt-10">
           <div>
             <h1 className="text-xl font-bold text-secondary-700 mb-8">
-              صفحه ای که دنبالش بودید، پیدا نشد
+              {text}
             </h1>
             <button onClick={moveBack} className="flex items-center gap-x-2">
               <HiArrowRight className="w-6 h-6 text-primary-900" />

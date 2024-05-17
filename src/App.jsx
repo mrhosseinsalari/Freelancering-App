@@ -57,6 +57,10 @@ function App() {
           </Route>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
+          <Route
+            path="/not-access"
+            element={<NotFound text="شما به این صفحه دسترسی ندارید" />}
+          />
         </Routes>
       </QueryClientProvider>
     </DarkModeProvider>
