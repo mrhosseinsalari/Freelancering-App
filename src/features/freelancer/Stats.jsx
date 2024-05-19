@@ -1,10 +1,7 @@
-import {
-  HiCollection,
-  HiCurrencyDollar,
-  HiOutlineViewGrid,
-} from "react-icons/hi";
+import { HiCollection, HiCurrencyDollar } from "react-icons/hi";
 import Stat from "../../ui/Stat";
 import { toPersianNumbersWithComma } from "../../utils/toPersianNumbers";
+import { HiWallet } from "react-icons/hi2";
 
 function Stats({ proposals }) {
   const numOfProposals = proposals.length;
@@ -17,7 +14,7 @@ function Stats({ proposals }) {
         color="blue"
         title="درخواست ها"
         value={numOfProposals}
-        icon={<HiOutlineViewGrid className="w-20 h-20" />}
+        icon={<HiCollection className="w-20 h-20" />}
       />
       <Stat
         color="green"
@@ -29,7 +26,7 @@ function Stats({ proposals }) {
         color="yellow"
         title="کیف پول"
         value={toPersianNumbersWithComma(balance)}
-        icon={<HiCollection className="w-20 h-20" />}
+        icon={<HiWallet className="w-20 h-20" />}
       />
     </div>
   );
