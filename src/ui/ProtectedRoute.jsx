@@ -23,7 +23,6 @@ function ProtectedRoute({ children }) {
     }
     if (!isVerified && !isLoading) {
       toast.error("پروفایل شما هنوز تایید نشده است");
-      navigate("/");
     }
   }, [isAuthenticated, isAuthorized, isLoading, isVerified, navigate]);
 

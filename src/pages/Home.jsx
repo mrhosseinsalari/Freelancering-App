@@ -1,11 +1,20 @@
+import { Navigate } from "react-router-dom";
+import useAuthorize from "../features/authentication/useAuthorize";
+import Loading from "../ui/Loading";
+
 function Home() {
-  return (
-    <div className="h-screen bg-secondary-0">
-      <div className="container xl:max-w-screen-xl">
-        <h1 className="p-4 text-xl text-secondary-700">صفحه اصلی</h1>
+  const { isAuthenticated, isLoading, user } = useAuthorize();
+
+  if (!isAuthenticated && !isLoading) return <Navigate to="/auth" replace />;
+
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center h-screen bg-secondary-100">
+        <Loading />
       </div>
-    </div>
-  );
+    );
+
+  return <Navigate to={`/${user.role.toLowerCase()}`} replace />;
 }
 
 export default Home;
