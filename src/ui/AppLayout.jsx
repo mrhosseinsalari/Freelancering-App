@@ -1,25 +1,23 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import useAuthorize from "../features/authentication/useAuthorize";
+import Sidebar from "./Sidebar";
+import Main from "./Main";
+import { useSidebar } from "../context/SidebarContext";
 
 function AppLayout({ children }) {
-  const { isVerified } = useAuthorize();
+  const { expanded } = useSidebar();
 
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr] grid-cols-[15rem_1fr]">
+    <div
+      className={`grid h-screen grid-rows-[auto_1fr] grid-cols-1 ${
+        !expanded ? "sm:grid-cols-[15rem_1fr]" : ""
+      }`}
+    >
       <Header />
-      {children}
-      <div className="bg-secondary-100 p-8 overflow-y-auto">
-        <div className="mx-auto max-w-screen-lg flex flex-col gap-y-12">
-          {isVerified ? (
-            <Outlet />
-          ) : (
-            <h1 className="font-bold text-2xl text-secondary-900">
-              پروفایل شما در انتظار تایید است
-            </h1>
-          )}
-        </div>
-      </div>
+      <Sidebar>{children}</Sidebar>
+      <Main>
+        <Outlet />
+      </Main>
     </div>
   );
 }

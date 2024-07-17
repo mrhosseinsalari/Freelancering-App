@@ -10,7 +10,7 @@ function UserAvatar() {
         src="/user.jpg"
         alt="user-account"
       />
-      <span>{user?.name}</span>
+      <span className="text-sm min-[375px]:text-base">{user?.name}</span>
     </div>
   );
 }

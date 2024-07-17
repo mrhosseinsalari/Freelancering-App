@@ -9,7 +9,6 @@ import OwnerDashboard from "./pages/OwnerDashboard";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
 import { Navigate } from "react-router-dom";
-import { DarkModeProvider } from "./context/DarkModeContext";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import FreelancerDashboard from "./pages/FreelancerDashboard";
 import Proposals from "./pages/Proposals";
@@ -20,12 +19,13 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import Users from "./pages/Users";
+import AppProviders from "./ui/AppProviders";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <DarkModeProvider>
+    <AppProviders>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
@@ -80,7 +80,7 @@ function App() {
           />
         </Routes>
       </QueryClientProvider>
-    </DarkModeProvider>
+    </AppProviders>
   );
 }
 
