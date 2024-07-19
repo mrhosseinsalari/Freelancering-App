@@ -7,6 +7,9 @@ function Home() {
 
   if (!isAuthenticated && !isLoading) return <Navigate to="/auth" replace />;
 
+  if (!user.isActive && !isLoading)
+    return <Navigate to="/complete-profile" replace />;
+
   if (isLoading)
     return (
       <div className="flex items-center justify-center h-screen bg-secondary-100">
