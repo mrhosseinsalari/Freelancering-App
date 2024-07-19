@@ -57,7 +57,7 @@ function CheckOTPForm({ phoneNumber, onBack, onReSendOtp, otpResponse }) {
         <HiArrowRight className="w-6 h-6 text-secondary-500" />
       </button>
       {otpResponse && (
-        <p className="flex items-center gap-x-2 my-4">
+        <p className="flex items-center gap-x-2 my-4 text-secondary-800">
           <span>{otpResponse?.message}</span>
           <button onClick={onBack}>
             <CiEdit />

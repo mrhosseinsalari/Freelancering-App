@@ -1,10 +1,6 @@
 import { HiOutlineX } from "react-icons/hi";
 import { useSidebar } from "../context/SidebarContext";
 import useOutsideClick from "../hooks/useOutsideClick";
-import {
-  backdropClasses,
-  sidebarExpandedClasses,
-} from "../styles/sidebarStyles";
 
 function Sidebar({ children }) {
   const { expanded, setExpanded } = useSidebar();
@@ -13,12 +9,12 @@ function Sidebar({ children }) {
 
   return (
     <>
-      <div className={`${expanded ? backdropClasses : "hidden"}`}></div>
+      <div className={`${expanded ? "sidebar-backdrop" : "hidden"}`}></div>
       <div
         ref={ref}
         className={`bg-secondary-0 row-start-1 row-span-2 transition-all duration-300 
         border-l border-secondary-200 p-4 ${
-          expanded ? sidebarExpandedClasses : "hidden sm:block"
+          expanded ? "sidebar-expanded" : "hidden sm:block"
         }`}
       >
         <button

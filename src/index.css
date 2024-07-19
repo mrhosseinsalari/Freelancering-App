@@ -110,6 +110,13 @@
   .badge--danger {
     @apply bg-red-500 text-white;
   }
+  .sidebar-expanded {
+    @apply fixed top-0 right-0 z-40 block w-64 h-screen;
+  }
+  .sidebar-backdrop {
+    @apply backdrop-blur-sm fixed top-0 left-0 w-full 
+    h-screen bg-secondary-800 bg-opacity-30 z-10;
+  }
 }
 
 html,
