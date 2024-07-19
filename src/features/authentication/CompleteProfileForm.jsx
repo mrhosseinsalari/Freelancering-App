@@ -30,7 +30,7 @@ function CompleteProfileForm() {
 
       if (user.status !== 2) {
         navigate("/");
-        toast("پروفایل شما در انتظار تایید است");
+        // toast("پروفایل شما در انتظار تایید است");
         return;
       }
 
