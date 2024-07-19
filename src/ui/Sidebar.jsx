@@ -17,14 +17,15 @@ function Sidebar({ children }) {
           expanded ? "sidebar-expanded" : "hidden sm:block"
         }`}
       >
-        <button
-          onClick={onClose}
+        <div
           className={`w-full mb-4 ${
             expanded ? "flex justify-end items-center" : "hidden"
           }`}
         >
-          <HiOutlineX className="w-5 h-5 text-secondary-500" />
-        </button>
+          <button onClick={onClose}>
+            <HiOutlineX className="w-5 h-5 text-secondary-500" />
+          </button>
+        </div>
         <ul className="flex flex-col gap-y-4">{children}</ul>
       </div>
     </>
