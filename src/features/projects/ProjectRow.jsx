@@ -44,7 +44,7 @@ function ProjectRow({ project, index }) {
               <TbPencilMinus className="w-5 h-5 text-primary-900" />
             </button>
             <Modal
-              title={`ویرایش ${project.title}`}
+              title={`ویرایش پروژه ${project.title}`}
               open={isEditOpen}
               onClose={() => setIsEditOpen(false)}
             >
@@ -59,7 +59,7 @@ function ProjectRow({ project, index }) {
               <HiOutlineTrash className="w-5 h-5 text-error" />
             </button>
             <Modal
-              title={`حذف ${project.title}`}
+              title={`حذف پروژه ${project.title}`}
               open={isDeleteOpen}
               onClose={() => setIsDeleteOpen(false)}
             >
