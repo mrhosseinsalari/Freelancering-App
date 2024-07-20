@@ -31,7 +31,7 @@ function CheckOTPForm({ phoneNumber, onBack, onReSendOtp, otpResponse }) {
       }
       if (user.status !== 2) {
         navigate("/");
-        toast("پروفایل شما در انتظار تایید است");
+        // toast("پروفایل شما در انتظار تایید است");
         return;
       }
 
