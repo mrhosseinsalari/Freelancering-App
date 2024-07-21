@@ -37,7 +37,7 @@ function ProjectRow({ project, index }) {
         <Modal
           open={open}
           onClose={() => setOpen(false)}
-          title={`درخواست انجام ${title}`}
+          title={`درخواست انجام پروژه ${title}`}
         >
           <CreateProposal
             projectId={project._id}
