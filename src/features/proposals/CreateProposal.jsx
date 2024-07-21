@@ -53,7 +53,7 @@ function CreateProposal({ projectId, onClose }) {
           errors={errors}
         />
         <TextField
-          label="مدت زمان"
+          label="مدت زمان (بر حسب روز)"
           name="duration"
           type="number"
           register={register}
