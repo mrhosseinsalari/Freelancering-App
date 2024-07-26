@@ -39,7 +39,15 @@ git clone https://github.com/mrhosseinsalari/Freelancering-App-Frontend
 cd Freelancering-App-Frontend
 ```
 
-#### 2) Setup project
+#### 2) Add environment variable
+
+Now you need to create a `.env.development.local` file in the root directory. Here's the variable you need to create :
+
+```env
+VITE_BASE_URL="URL related to the server along with the `api` endpoint -> for example : `http://localhost:5000/api`"
+```
+
+#### 3) Setup project
 
 ```shell
 npm install
@@ -49,7 +57,7 @@ npm install
 npm run dev
 ```
 
-#### 3) Setup Back-End
+#### 4) Setup Back-End
 
 To set up the website's back-end, please refer to the following repository and follow the steps to set up the backend :
 
