@@ -44,7 +44,7 @@ cd Freelancering-App-Frontend
 Now you need to create a `.env.development.local` file in the root directory. Here's the variable you need to create :
 
 ```env
-VITE_BASE_URL="URL related to the server along with the `api` endpoint -> for example : `http://localhost:5000/api`"
+VITE_BASE_URL=http://localhost:5000/api
 ```
 
 #### 3) Setup project
