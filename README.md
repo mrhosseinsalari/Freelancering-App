@@ -32,11 +32,11 @@ To set up the project on your localhost, follow the steps below. Afterwards, you
 #### 1) Clone project
 
 ```shell
-git clone https://github.com/mrhosseinsalari/Freelancering-App-Frontend
+git clone https://github.com/mrhosseinsalari/Freelancering-App
 ```
 
 ```shell
-cd Freelancering-App-Frontend
+cd Freelancering-App
 ```
 
 #### 2) Add environment variable
