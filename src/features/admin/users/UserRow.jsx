@@ -28,6 +28,9 @@ const userRoles = {
   FREELANCER: {
     label: "فریلنسر",
   },
+  USER: {
+    label: "کاربر",
+  },
 };
 
 function UserRow({ user, index }) {
@@ -37,8 +40,8 @@ function UserRow({ user, index }) {
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td>{name}</td>
-      <td>{email}</td>
+      <td>{name || "-"}</td>
+      <td>{email || "-"}</td>
       <td>{phoneNumber}</td>
       <td>{userRoles[role].label}</td>
       <td>
