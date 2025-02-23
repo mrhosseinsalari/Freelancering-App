@@ -7,10 +7,29 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useUser from "./useUser";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const phoneRegExp = /^[0][9][0-9][0-9]{8,8}$/;
+
+const schema = yup
+  .object({
+    phoneNumber: yup
+      .string()
+      .matches(phoneRegExp, "لطفا شماره موبایل معتبر را وارد کنید"),
+  })
+  .required();
 
 function AuthContainer() {
   const navigate = useNavigate();
-  const { register, handleSubmit, getValues } = useForm();
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const [step, setStep] = useState(1);
   const { user } = useUser();
   // const [phoneNumber, setPhoneNumber] = useState("");
@@ -45,6 +64,7 @@ function AuthContainer() {
             onSubmit={handleSubmit(sendOtpHandler)}
             isSendingOtp={isSendingOtp}
             register={register}
+            errors={errors}
             // onSubmit={sendOtpHandler}
             // phoneNumber={phoneNumber}
             // onChange={(e) => setPhoneNumber(e.target.value)}
