@@ -29,7 +29,13 @@ To view it online, please click on this link : [Freelancering App](https://freel
 
 To set up the project on your localhost, follow the steps below. Afterwards, you can utilize the project's back-end and test it accordingly:
 
-#### 1) Clone project
+#### 1) Setup Back-End
+
+To set up the website's back-end, please refer to the following repository and follow the steps to set up the backend:
+
+[Repository Link](https://github.com/mrhosseinsalari/Freelancering-App-Backend)
+
+#### 2) Clone project
 
 ```shell
 git clone https://github.com/mrhosseinsalari/Freelancering-App
@@ -39,7 +45,7 @@ git clone https://github.com/mrhosseinsalari/Freelancering-App
 cd Freelancering-App
 ```
 
-#### 2) Add environment variable
+#### 3) Add environment variable
 
 Now you need to create a `.env.development.local` file in the root directory. Here's the variable you need to create :
 
@@ -47,7 +53,7 @@ Now you need to create a `.env.development.local` file in the root directory. He
 VITE_BASE_URL=http://localhost:5000/api
 ```
 
-#### 3) Setup project
+#### 4) Setup project
 
 ```shell
 npm install
@@ -56,9 +62,3 @@ npm install
 ```shell
 npm run dev
 ```
-
-#### 4) Setup Back-End
-
-To set up the website's back-end, please refer to the following repository and follow the steps to set up the backend :
-
-[Repository Link](https://github.com/mrhosseinsalari/Freelancering-App-Backend)
