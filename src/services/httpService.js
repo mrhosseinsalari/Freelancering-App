@@ -25,7 +25,7 @@ app.interceptors.response.use(
         });
         if (data) return app(originalConfig);
       } catch (error) {
-        return Promise.reject(err);
+        return Promise.reject(error);
       }
     }
     return Promise.reject(err);
